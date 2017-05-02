@@ -1,0 +1,67 @@
+@import "fonts"
+@import "vars"
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: rgba(0,0,0,.25)
+	border-color: rgba(0,0,0,.25)
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.75
+	font-family: $default-font
+	background-color: #192626
+	overflow-x: hidden
+	opacity: 1
+// .navbar-wrapper
+// 	width: 100%
+// 	padding: 50px 0 0 0
+// 	margin-top: 0
+// 	z-index: 2
+// 	.logo
+// 		height: 88px
+// 		width: 220px
+// 		float: left;
+// 		text-align: center
+// 		color: #fff
+// 		font-family: ptsansbolditalic,sans-serif
+// 		font-size: 1.8125em
+// 	.loginForm 
+// 		position: absolute
+// 		top: 75px
+// 		right: 10%
+// 		.loginLogin 
+// 			max-height: 51px
+// 			padding-left: 15px
+// 			.loginLoginForm 
+// 				margin: 0
+// 				font-size: .8125em
+
+
+
+.mm-navbar
+	img
+		height: 19px
+
+@import "media" 
