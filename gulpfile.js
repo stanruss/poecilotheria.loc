@@ -27,23 +27,23 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('sass', function() {
-	return gulp.src('assets/templates/Stas/app/sass/**/*.sass')
+	return gulp.src('assets/templates/Stas/Gulp/sass/**/*.sass')
 	.pipe(sass().on("error", notify.onError()))
 	.pipe(rename({suffix: '.min', prefix : ''}))
 	.pipe(autoprefixer(['last 15 versions']))
 	.pipe(cleanCSS())
-	.pipe(gulp.dest('assets/templates/Stas/app/css'))
+	.pipe(gulp.dest('assets/templates/Stas/css'))
 	.pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('watch', ['sass', 'browser-sync'], function() {
-	gulp.watch('assets/templates/Stas/app/sass/**/*.sass', ['sass']);
+	gulp.watch('assets/templates/Stas/Gulp/sass/**/*.sass', ['sass']);
 	gulp.watch(['assets/templates/Stas/libs/**/*.js', 'app/js/common.js'], ['scripts']);
-	gulp.watch('assets/templates/Stas/app/*.php', browserSync.reload);
+	gulp.watch('assets/templates/Stas/*.php', browserSync.reload);
 });
 
 gulp.task('imagemin', function() {
-	return gulp.src('assets/templates/Stas/app/img/**/*')
+	return gulp.src('assets/templates/Stas/img/**/*')
 	.pipe(cache(imagemin()))
 	.pipe(gulp.dest('assets/templates/Stas/dist/img')); 
 });
@@ -56,7 +56,7 @@ gulp.task('build', ['removedist', 'imagemin', 'sass'], function() {
 		]).pipe(gulp.dest('assets/templates/Stas/dist'));
 
 	var buildCss = gulp.src([
-		'assets/templates/Stas/app/css/main.min.css',
+		'assets/templates/Stas/css/main.min.css',
 		]).pipe(gulp.dest('assets/templates/Stas/dist/css'));
 
 	var buildJs = gulp.src([
