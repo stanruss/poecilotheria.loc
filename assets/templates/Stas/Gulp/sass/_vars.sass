@@ -30,7 +30,7 @@ $bgmli: #181A1C
 $mmc: #1f1d1a
 $dgrey: #333
 $sdgrey: #111
-
+$main-color: #192626
 $red: #4a1106
 $lc: rgba(255,255,255,.8)
 $rmc: rgba(24, 26, 28, 0.4)
@@ -66,4 +66,23 @@ $hhi:  'HelveticaHeavyItalic' , sans-serif
 $hthi:  'HelveticaThinItalic' , sans-serif
 $huli:  'HelveticaUltraLightItalic' , sans-serif
 
+@mixin transition($time)
+	-webkit-transition: all $time ease;
+	-moz-transition: all $time ease;
+	-o-transition: all $time ease;
+	transition: all $time ease;
+@mixin transform($time)
+	-webkit-transform: scale($time);
+	-ms-transform: scale($time);
+	transform: scale($time);
+@mixin transition-transform($time)
+	-webkit-transition: -webkit-transform $time ease;
+	transition: transform $time ease;
 
+@mixin transition-color($time)
+	-webkit-transition: color $time ease;
+	transition: color $time ease;
+@mixin box-shadow($value)
+	-webkit-box-shadow: $value;
+	-moz-box-shadow: $value;
+	box-shadow: $value;

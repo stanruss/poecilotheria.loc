@@ -39,7 +39,7 @@ gulp.task('sass', function() {
 gulp.task('watch', ['sass', 'browser-sync'], function() {
 	gulp.watch('assets/templates/Stas/Gulp/sass/**/*.sass', ['sass']);
 	gulp.watch(['assets/templates/Stas/libs/**/*.js', 'app/js/common.js'], ['scripts']);
-	gulp.watch('assets/templates/Stas/*.php', browserSync.reload);
+	gulp.watch('/*.php', browserSync.reload);
 });
 
 gulp.task('imagemin', function() {
@@ -51,8 +51,8 @@ gulp.task('imagemin', function() {
 gulp.task('build', ['removedist', 'imagemin', 'sass'], function() {
 
 	var buildFiles = gulp.src([
-		'assets/templates/Stas/app/*.php',
-		'app/.htaccess',
+		'/*.php',
+		'/.htaccess',
 		]).pipe(gulp.dest('assets/templates/Stas/dist'));
 
 	var buildCss = gulp.src([
