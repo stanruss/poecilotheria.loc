@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 07 2017 г., 22:38
+-- Время создания: Май 08 2017 г., 16:31
 -- Версия сервера: 5.5.53
 -- Версия PHP: 5.5.38
 
@@ -2101,7 +2101,11 @@ INSERT INTO `new_manager_log` (`id`, `user`, `occurred`, `action`, `classKey`, `
 (604, 1, '2017-05-07 22:28:54', 'resource_update', 'modResource', '2'),
 (605, 1, '2017-05-07 22:29:05', 'login', 'modContext', 'web'),
 (606, 1, '2017-05-07 22:35:57', 'chunk_update', 'modChunk', '50'),
-(607, 1, '2017-05-07 22:35:57', 'propertyset_update_from_element', 'modChunk', '50');
+(607, 1, '2017-05-07 22:35:57', 'propertyset_update_from_element', 'modChunk', '50'),
+(608, 1, '2017-05-08 16:27:16', 'login', 'modContext', 'mgr'),
+(609, 1, '2017-05-08 16:27:47', 'login', 'modContext', 'web'),
+(610, 1, '2017-05-08 16:30:21', 'chunk_update', 'modChunk', '19'),
+(611, 1, '2017-05-08 16:30:22', 'propertyset_update_from_element', 'modChunk', '19');
 
 -- --------------------------------------------------------
 
@@ -2638,7 +2642,7 @@ CREATE TABLE `new_session` (
 --
 
 INSERT INTO `new_session` (`id`, `access`, `data`) VALUES
-('uuenp3asi9u74an1os5uq6o587', 1494185844, 'modx.user.contextTokens|a:0:{}');
+('idptqlsut61smo6s37m1k55ip0', 1494250274, 'modx.user.contextTokens|a:0:{}');
 
 -- --------------------------------------------------------
 
@@ -2760,7 +2764,7 @@ INSERT INTO `new_site_htmlsnippets` (`id`, `source`, `property_preprocess`, `nam
 (16, 0, 0, 'lgnForgotPassEmail', '', 0, 11, 0, '<p>[[+username]],</p>\n\n<p>Для активации аккаунта, нажмите пожалуйста на ссылку снизу:</p>\n\n<p><a href=\"[[+confirmUrl]]\">[[+confirmUrl]]</a></p>\n\n<p>Если все прошло удачно, можете уже авторизоваться в системе:</p>\n\n<p><strong>Password:</strong> [[+password]]</p>\n\n<p>Если вы не заказывали активацию, проигнорируйте это письмо.</p>\n\n<p>Спасибо,<br />\n<em>Администратор сайта poecilotheria.ru</em></p>', 0, 'a:0:{}', 0, ''),
 (17, 0, 0, 'lgnForgotPassSentTpl', '', 0, 11, 0, '\n<h2 class=\"center\">Уважаемый пользователь!</h2>\n<p class=\"center\">Ваши данные были посланы на ваш почтовый ящик [[+email]].</p>\n\n\n\n\n\n', 0, 'a:0:{}', 0, ''),
 (18, 0, 0, 'lgnForgotPassTpl', '', 0, 11, 0, '<div class=\"loginFPErrors\">[[+loginfp.errors]]</div>\n<div class=\"loginFP\">\n    <form class=\"loginFPForm\" action=\"[[~[[*id]]]]\" method=\"post\">\n        <fieldset class=\"loginFPFieldset\">\n            <legend class=\"loginFPLegend\">[[%login.forgot_password]]</legend>\n            <label class=\"loginFPUsernameLabel\">[[%login.username]] <br/>\n                <input class=\"loginFPUsername\" type=\"text\" name=\"username\" value=\"[[+loginfp.post.username]]\" />\n            </label>\n            \n            <p>[[%login.or_forgot_username]]</p>\n            \n            <label class=\"loginFPEmailLabel\">[[%login.email]]\n                <input class=\"loginFPEmail\" type=\"text\" name=\"email\" value=\"[[+loginfp.post.email]]\" />\n            </label>\n            \n            <input class=\"returnUrl\" type=\"hidden\" name=\"returnUrl\" value=\"[[+loginfp.request_uri]]\" />\n            \n            <input class=\"loginFPService\" type=\"hidden\" name=\"login_fp_service\" value=\"forgotpassword\" />\n            <span class=\"loginFPButton\"><input type=\"submit\" name=\"login_fp\" value=\"[[%login.reset_password]]\" /></span>\n        </fieldset>\n    </form>\n</div>', 0, 'a:0:{}', 0, ''),
-(19, 0, 0, 'lgnResetPassTpl', '', 0, 11, 0, '<style>\n body{background-color:#f8e6c0}   \nsection.pwbreak{width:300px;margin:40px auto;}\nsection.pwbreak p{font-size: 18px}\n</style>\n<section class=\"pwbreak\">\n\n<div class=\"loginResetPass\">\n<p class=\"loginResetPassHeader\">[[+username]],</p>\n\n<p class=\"loginResetPassText center\">Ваш пароль был сброшен. Возвратитесь <a href=\"[[+loginUrl]]\">сюда</a> для авторизации.</p>  \n</div>\n</section>\n', 0, 'a:0:{}', 0, ''),
+(19, 0, 0, 'lgnResetPassTpl', '', 0, 11, 0, '<!DOCTYPE html>\n<html lang=\"ru\">\n	<head>\n		[[$Todc.Head]]\n        <style>\n body{background-color:#192626;color: #fff;} \n .loginResetPass a{text-decoration: underline; color: red;}\nsection.pwbreak{width:320px;margin:40px auto;}\nsection.pwbreak p{font-size: 18px}\n.fa-arrow-circle-right {margin-right: 5px;}\n</style>\n	</head>\n	<body>\n	    \n\n\n\n<section class=\"pwbreak\">\n\n<div class=\"loginResetPass\">\n<p class=\"loginResetPassHeader\">[[+username]],</p>\n\n<p class=\"loginResetPassText center\">Ваш пароль был сброшен. Возвратитесь <a href=\"[[+loginUrl]]\"><i class=\"fa fa-arrow-circle-right\" aria-hidden=\"true\"></i>сюда</a> для авторизации.</p>  \n</div>\n</section>\n[[$Todc.Scripts?]]\n        \n	</body>\n</html>', 0, 'a:0:{}', 0, ''),
 (20, 0, 0, 'lgnRegisterFormTpl', '', 0, 11, 0, '<div class=\"register\">\n    <div class=\"registerMessage\">[[+error.message]]</div>\n    \n    <form class=\"form\" action=\"[[~[[*id]]]]\" method=\"post\">\n        <input type=\"hidden\" name=\"nospam:blank\" value=\"\" />\n        \n        <label for=\"username\">[[%register.username? &namespace=`login` &topic=`register`]]\n            <span class=\"error\">[[+error.username]]</span>\n        </label>\n        <input type=\"text\" name=\"username:required:minLength=6\" id=\"username\" value=\"[[+username]]\" />\n        \n        <label for=\"password\">[[%register.password]]\n            <span class=\"error\">[[+error.password]]</span>\n        </label>\n        <input type=\"password\" name=\"password:required:minLength=6\" id=\"password\" value=\"[[+password]]\" />\n        \n        <label for=\"password_confirm\">[[%register.password_confirm]]\n            <span class=\"error\">[[+error.password_confirm]]</span>\n        </label>\n        <input type=\"password\" name=\"password_confirm:password_confirm=`password`\" id=\"password_confirm\" value=\"[[+password_confirm]]\" />\n        \n        <label for=\"fullname\">[[%register.fullname]]\n            <span class=\"error\">[[+error.fullname]]</span>\n        </label>\n        <input type=\"text\" name=\"fullname:required\" id=\"fullname\" value=\"[[+fullname]]\" />\n        \n        <label for=\"email\">[[%register.email]]\n            <span class=\"error\">[[+error.email]]</span>\n        </label>\n        <input type=\"text\" name=\"email:email\" id=\"email\" value=\"[[+email]]\" />\n        \n        <br class=\"clear\" />\n\n        [[+register.recaptcha_html]]\n        [[+error.recaptcha]]\n        \n        <div class=\"form-buttons\">\n            <input type=\"submit\" name=\"login-register-btn\" value=\"Register\" />\n        </div>\n    </form>\n</div>', 0, 'a:0:{}', 0, ''),
 (21, 0, 0, 'lgnActivateEmailTpl', '', 0, 11, 0, '<p>[[+username]],</p>\n\n<p>Спасибо за регистрацию и интерес к нашему сайту poecilotheria.ru, для активации аккаунта нажмите на ссылку:</p>\n\n<p><a href=\"[[+confirmUrl]]\">[[+confirmUrl]]</a></p>\n\n<p>После активации аккаунта, вы можете использовать свои логин и пароль:</p>\n\n<p>\nЛогин: <strong>[[+username]]</strong><br />\nПароль: <strong>[[+password]]</strong></p>\n\n<p>Если вы не регистрировались на сайте poecilotheria.ru, проигнорируйте это письмо.</p>\n\n<p>Спасибо,<br />\n<em>Администратор сайта poecilotheria.ru </em></p>', 0, 'a:0:{}', 0, ''),
 (22, 0, 0, 'lgnActiveUser', '', 0, 11, 0, '<li>[[+username]]</li>', 0, 'a:0:{}', 0, ''),
@@ -4080,7 +4084,7 @@ CREATE TABLE `new_user_attributes` (
 --
 
 INSERT INTO `new_user_attributes` (`id`, `internalKey`, `fullname`, `email`, `phone`, `mobilephone`, `blocked`, `blockeduntil`, `blockedafter`, `logincount`, `lastlogin`, `thislogin`, `failedlogincount`, `sessionid`, `dob`, `gender`, `address`, `country`, `city`, `state`, `zip`, `fax`, `photo`, `comment`, `website`, `extended`) VALUES
-(1, 1, 'Администратор по умолчанию', 'manager@poecilotheria.ru', '', '', 0, 0, 0, 62, 1494184806, 1494185345, 0, 'er8cf0nv5g9v6dnlr6uc7pk1t5', 0, 0, '', '', '', '', '', '', '', '', '', NULL),
+(1, 1, 'Администратор по умолчанию', 'manager@poecilotheria.ru', '', '', 0, 0, 0, 64, 1494250036, 1494250067, 0, 't7het9s7tgg0tmmd14v10is777', 0, 0, '', '', '', '', '', '', '', '', '', NULL),
 (2, 2, 'Stan', 'stan1978@pisem.net', '', '', 0, 0, 0, 2, 1493297730, 1493298728, 0, 'bb9ba8f3169f6aba96c5e0418dd2f0fb', 0, 0, '', '', '', '', '', '', '', '', '', '[]');
 
 -- --------------------------------------------------------
@@ -5217,7 +5221,7 @@ ALTER TABLE `new_lexicon_entries`
 -- AUTO_INCREMENT для таблицы `new_manager_log`
 --
 ALTER TABLE `new_manager_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=608;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=612;
 --
 -- AUTO_INCREMENT для таблицы `new_media_sources`
 --
